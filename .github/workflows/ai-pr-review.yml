@@ -43,7 +43,7 @@ jobs:
         env:
           API_KEY: 'Gw4CHZCNPB1FhfYT6wjQELL3g0oyrgY9yZbuKAABkIGG5gTy'  # Store your API key in GitHub Secrets
         run: |
-          python ai_review.py
+          python gemini_review.py
 
       - name: Post AI Review
         uses: actions/github-script@v6
