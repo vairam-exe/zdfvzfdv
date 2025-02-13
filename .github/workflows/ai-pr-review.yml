@@ -41,7 +41,7 @@ jobs:
 
       - name: Run AI Review Script
         env:
-          API_KEY: 'Gw4CHZCNPB1FhfYT6wjQELL3g0oyrgY9yZbuKAABkIGG5gTy'  # Store your API key in GitHub Secrets
+          API_KEY: ''  # Store your API key in GitHub Secrets
         run: |
           python gemini_review.py
 
