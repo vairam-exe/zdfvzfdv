@@ -1,4 +1,3 @@
-```markdown
 # CodeWatchDog
 
 **CodeWatchDog** is a GitHub Action that leverages AI to review your pull requests (PRs) automatically. It analyzes code changes and provides insightful comments directly on your PR, helping to improve code quality and catch potential issues early.
