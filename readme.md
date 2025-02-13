@@ -78,38 +78,24 @@ Store your sensitive tokens securely in your repository's secrets:
 
 ### 4. Initialize a Self-Hosted Server
 
-The self-hosted server is required to run the AI review engine locally. Follow these steps to set up your server:
+To set up a self-hosted runner for CodeWatchDog, follow these steps:
 
-1. **Prerequisites:**
-   - Ensure you have a supported operating system (Linux, macOS, or Windows).
-   - Install Docker or any other required dependencies as per the server documentation.
+1. **Navigate to Repository Settings:**
+   - Go to your GitHub repository.
+   - Click on **Settings** > **Actions** > **Runners**.
 
-2. **Clone the Server Repository:**
-   ```bash
-   git clone https://github.com/your-organization/codewatchdog-server.git
-   cd codewatchdog-server
-   ```
+2. **Set Up a Self-Hosted Runner:**
+   - Click on **New self-hosted runner**.
+   - Select your operating system.
+   - Follow the instructions provided to download, configure, and run the runner.
 
-3. **Configure the Server:**
-   - Update configuration files (e.g., `.env`) with the necessary parameters including the `API_KEY` and any other required environment variables.
-   - For Docker deployments, ensure your `Dockerfile` and `docker-compose.yml` are configured correctly.
+3. **Start the Runner:**
+   - Run the provided setup commands in your terminal.
+   - Start the runner service to ensure it is always available.
 
-4. **Start the Server:**
-   - Using Docker Compose:
-     ```bash
-     docker-compose up -d
-     ```
-   - Or run the server directly if not using Docker:
-     ```bash
-     ./start-server.sh
-     ```
-
-5. **Verify Server Operation:**
-   - Confirm that the server is running and accessible by visiting the configured endpoint (e.g., `http://localhost:8080`).
-
-> **Important:** Ensure that your server is secure and accessible only to authorized users, as it handles sensitive API requests.
-
----
+4. **Verify the Setup:**
+   - Ensure the runner appears as "Idle" under the **Self-hosted runners** section in your repository settings.
+   - Test a workflow run to confirm that the self-hosted runner is working correctly.
 
 ## Usage
 
@@ -119,35 +105,6 @@ Once everything is set up, CodeWatchDog will automatically run on each pull requ
 2. **Analysis:** The action sends the code changes to your self-hosted server where the AI engine processes the review.
 3. **Feedback:** The AI engine generates review comments which are then posted directly on your pull request by the GitHub Action.
 
-### Example Workflow File
-
-Below is an example snippet of a GitHub Actions workflow (`.github/workflows/codewatchdog.yml`):
-
-```yaml
-name: CodeWatchDog PR Review
-
-on:
-  pull_request:
-    types: [opened, synchronize]
-
-jobs:
-  ai-review:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Run CodeWatchDog
-        uses: your-organization/codewatchdog@v1
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
-          SERVER_URL: "http://your-server-address:8080"
-```
-
-> **Note:** Replace `"http://your-server-address:8080"` with the actual URL of your self-hosted server.
-
----
 
 ## Troubleshooting
 
@@ -171,16 +128,10 @@ For more detailed logs, consider enabling debug logging in your GitHub Actions w
 
 For any assistance or inquiries, please contact:
 
+**Manikandan R**  
+Email: [manikandan.r2@dhl.com](mailto:manikandan.r2@dhl.com)  
+
 **Naresh Vairam V**  
 Email: [nareshvairam.v@dhl.com](mailto:nareshvairam.v@dhl.com)
 
 ---
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
-
-Happy coding and happy reviewing with CodeWatchDog!
-```
