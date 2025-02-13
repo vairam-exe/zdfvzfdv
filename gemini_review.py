@@ -4,8 +4,8 @@ import re
 from pathlib import Path
 
 # Constants
-API_URL = "https://apihub.dhl.com/genai/openai/deployments/gpt-35-turbo-0301/chat/completions?api-version=2023-05-15"
-API_KEY = "Gw4CHZCNPB1FhfYT6wjQELL3g0oyrgY9yZbuKAABkIGG5gTy"
+API_URL = ""
+API_KEY = ""
 
 def call_ai_api(diff_content):
     """Call the AI API with the Git diff content."""
