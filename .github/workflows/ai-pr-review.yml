@@ -7,7 +7,7 @@ on:
       - synchronize
 jobs:
   ai-review:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       pull-requests: write  # Allow posting comments on pull requests
       contents: read        # Allow reading the repository contents
@@ -41,9 +41,9 @@ jobs:
 
       - name: Run AI Review Script
         env:
-          API_KEY: 'Gw4CHZCNPB1FhfYT6wjQELL3g0oyrgY9yZbuKAABkIGG5gTy'  # Store your API key in GitHub Secrets
+          API_KEY: ''  # Store your API key in GitHub Secrets
         run: |
-          python ai_review.py
+          python gemini_review.py
 
       - name: Post AI Review
         uses: actions/github-script@v6
